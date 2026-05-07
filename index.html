@@ -2176,6 +2176,188 @@
     .footer-grid{ flex-direction: column; text-align: center; }
     .footer-meta{ flex-direction: column; gap: 10px; align-items: center; }
   }
+
+  @media (max-width: 640px){
+    /* TOPBAR — tighten spacing */
+    .topbar{ padding: 10px 14px; }
+    .topbar .brand-logo{ width: 42px; height: 42px; }
+    .topbar .brand-text{ font-size: 22px; letter-spacing: 0.14em; }
+    .topbar .brand-text small{ font-size: 8px; letter-spacing: 0.2em; margin-top: 3px; }
+    .topbar.scrolled .brand-logo{ width: 36px; height: 36px; }
+    .topbar.scrolled .brand-text{ font-size: 18px; }
+    .menu-toggle{ width: 28px; height: 28px; }
+    .menu-toggle span{ width: 22px; }
+
+    /* HERO — restrain massive type, tighten padding */
+    .hero{
+      padding: 100px 16px 50px;
+      gap: 36px;
+    }
+    .hero h1{ font-size: 48px; line-height: 0.95; }
+    .hero-tag{ font-size: 9px; padding: 6px 10px; letter-spacing: 0.18em; }
+    .hero-lead{ font-size: 15px; }
+    .hero-actions{ flex-direction: column; align-items: stretch; }
+    .hero-actions .cta-btn,
+    .hero-actions .ghost-btn{ justify-content: center; padding: 14px 18px; font-size: 11px; }
+    .hero-meta{
+      gap: 12px;
+      margin-top: 36px;
+      padding-top: 22px;
+    }
+    .meta-item{ flex: 1 1 45%; min-width: 130px; }
+    .meta-num{ font-size: 28px; }
+    .meta-label{ font-size: 9px; letter-spacing: 0.18em; }
+    .hero-visual{ max-width: 100%; }
+    .stage-live, .hero-video-tag{ font-size: 8px; padding: 4px 9px; letter-spacing: 0.18em; }
+    .stage-corner{ width: 16px; height: 16px; }
+
+    /* SECTIONS — universal padding tightening */
+    .section{ padding: 64px 16px; }
+    .section-num{ font-size: 10px; }
+    .section-num::before{ width: 18px; margin-right: 10px; }
+    .section-title{ font-size: 38px !important; line-height: 0.98; }
+    .section-sub{ font-size: 15px; }
+
+    /* ABOUT */
+    .about-grid{ gap: 36px; }
+    .about-quote{ font-size: 19px; padding-left: 18px; }
+    .about-body p{ font-size: 14px; }
+    .credentials{ padding: 24px 18px; }
+    .cred-list li{ font-size: 13px; }
+
+    /* INSTRUCTORS */
+    .instructors-inner{ padding: 0 16px; gap: 36px; }
+    .instructors-copy h2{ font-size: 38px; }
+    .instructors-copy p{ font-size: 15px; }
+    .instructors-stats{ grid-template-columns: 1fr; gap: 12px; }
+    .istat-num{ font-size: 24px; }
+    .instructor-card{ padding: 22px 18px; }
+    .ic-row{ padding: 11px 0; font-size: 12px; }
+    .ic-row .ic-key{ font-size: 9px; letter-spacing: 0.15em; }
+
+    /* COURSES — block headers */
+    .block-header{ padding: 20px 16px; margin: 36px 0 18px; }
+    .block-header .block-num{ font-size: 36px; }
+    .block-header .block-content h3{ font-size: 24px; }
+    .block-header .block-content p{ font-size: 13px; }
+    .block-header .block-tag{ font-size: 9px; padding: 6px 10px; }
+    .course-detail{ padding: 24px 18px; gap: 12px; }
+    .course-detail h4{ font-size: 22px; }
+    .course-detail h4 .sub{ font-size: 11px; }
+    .course-detail .desc{ font-size: 13px; }
+    .course-detail-foot a{ font-size: 10px; }
+    .integrated-note{ font-size: 13px; }
+
+    /* TRAINING COMPONENTS */
+    .components-inner{ padding: 0 16px; }
+    .comp{ padding: 28px 22px; }
+    .comp::before{ font-size: 42px; top: 16px; right: 18px; }
+    .comp h4{ font-size: 22px; }
+    .comp ul li{ font-size: 13px; }
+    .standard{ padding: 26px 18px; }
+    .standard-icon{ font-size: 60px; }
+    .standard h4{ font-size: 26px; }
+    .standard p{ font-size: 13px; }
+
+    /* GOLD BANNER */
+    .gold-banner{ padding: 30px 16px; }
+    .gold-banner h3{ font-size: 22px; }
+
+    /* PRICING TABLES */
+    .range{ padding: 64px 0; }
+    .range-inner{ padding: 0 16px; }
+    .pricing-matrix{ gap: 20px; }
+    .price-head{ padding: 18px 18px 14px; }
+    .price-head h3{ font-size: 26px; }
+    .price-head .ph-right .from strong{ font-size: 22px; }
+    .price-row{ padding: 12px 18px; gap: 12px; }
+    .price-row .pr-name{ font-size: 12px; letter-spacing: 0.04em; }
+    .price-row .pr-name small{ font-size: 8px; letter-spacing: 0.15em; }
+    .price-row .pr-amount{ font-size: 19px; }
+    .price-row .pr-amount .dollar{ font-size: 11px; }
+    .price-foot{ padding: 16px 18px; }
+    .price-foot a{ font-size: 10px; padding: 7px 12px; }
+    .price-foot .meta{ font-size: 9px; }
+    .range-package{ padding: 22px 16px; gap: 14px; }
+    .range-package .rp-icon{ font-size: 38px; }
+    .range-package .rp-content h4{ font-size: 22px; }
+    .range-package .rp-content p{ font-size: 13px; }
+    .range-package .rp-includes li{ font-size: 9px; padding: 5px 9px; }
+    .pricing-cta-band{ padding: 22px 12px; margin-top: 28px; }
+    .pricing-cta-band p{ font-size: 12px; }
+
+    /* GALLERY — single column, taller tiles, captions always visible */
+    .gallery{ padding: 64px 16px; }
+    .gallery-grid{
+      grid-template-columns: 1fr;
+      grid-auto-rows: 220px;
+      gap: 8px;
+    }
+    .gtile.t1, .gtile.t2, .gtile.t3, .gtile.t4,
+    .gtile.t5, .gtile.t6, .gtile.t7, .gtile.t8{
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    /* Captions always visible on mobile (no hover state) */
+    .gtile .caption{
+      transform: translateY(0);
+      opacity: 1;
+      font-size: 9px;
+      padding: 10px 12px;
+    }
+    .gtile img, .gtile video{
+      filter: grayscale(0) brightness(0.95) contrast(1);
+    }
+    .gtile .play-icon{ width: 56px; height: 56px; font-size: 16px; }
+
+    /* MANIFESTO */
+    .manifesto{ padding: 80px 16px; }
+    .manifesto h2{ font-size: 26px; }
+    .manifesto-eyebrow{ font-size: 9px; letter-spacing: 0.3em; }
+
+    /* CONTACT */
+    .contact-inner{ padding: 0 16px; gap: 36px; }
+    .contact-copy h2{ font-size: 40px; }
+    .contact-copy p{ font-size: 15px; }
+    .contact-row{ padding: 13px 14px; gap: 14px; }
+    .contact-row .icon{ width: 36px; height: 36px; font-size: 16px; }
+    .contact-row .row-main{ font-size: 14px; }
+    .contact-row .row-sub{ font-size: 9px; letter-spacing: 0.15em; }
+
+    /* FORM */
+    .form-card{ padding: 22px 16px; }
+    .form-head h3{ font-size: 22px; }
+    .form-head .pill{ font-size: 8px; padding: 4px 8px; }
+    .field input, .field select, .field textarea{ font-size: 14px; padding: 11px 12px; }
+    .field label{ font-size: 9px; letter-spacing: 0.15em; }
+    .submit-row{ flex-direction: column; align-items: stretch; gap: 14px; }
+    .submit-btn{ justify-content: center; font-size: 12px; padding: 13px 22px; }
+    .submit-note{ text-align: center; font-size: 9px; }
+
+    /* FOOTER */
+    footer{ padding: 40px 16px 24px; }
+    .footer-grid{ flex-direction: column; gap: 18px; padding-bottom: 22px; }
+    .footer-brand img{ width: 36px; height: 36px; }
+    .footer-brand-text{ font-size: 16px; letter-spacing: 0.14em; }
+    .footer-brand-text small{ font-size: 8px; letter-spacing: 0.2em; }
+    .footer-meta{ flex-direction: column; gap: 8px; align-items: center; font-size: 10px; }
+    .copyright{ font-size: 9px; letter-spacing: 0.15em; }
+  }
+
+  /* Tiny phones (≤380px) — final tightening */
+  @media (max-width: 380px){
+    .hero h1{ font-size: 42px; }
+    .section-title{ font-size: 32px !important; }
+    .topbar .brand-text{ font-size: 19px; }
+    .topbar .brand-text small{ font-size: 7px; }
+    .topbar .brand-logo{ width: 38px; height: 38px; }
+    .meta-item{ flex: 1 1 100%; }
+    .price-row .pr-name{ font-size: 11px; }
+    .price-row .pr-amount{ font-size: 17px; }
+    .contact-copy h2{ font-size: 32px; }
+    .instructors-copy h2{ font-size: 30px; }
+  }
+
 </style>
 </head>
 <body>
