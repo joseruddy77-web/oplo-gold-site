@@ -3875,7 +3875,9 @@
       </div>
     </div>
 
-    <form class="form-card" id="contactForm" novalidate>
+    <form class="form-card" id="contactForm" action="https://formspree.io/f/xnjwzkpp" method="POST">
+      <input type="hidden" name="_subject" value="New OPLO.GOLD Training Inquiry">
+      <input type="hidden" name="_replyto" id="_replyto">
       <div class="form-head">
         <h3>Request Contact</h3>
         <span class="pill">Secure Channel</span>
@@ -3884,28 +3886,28 @@
       <div class="form-row">
         <div class="field">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" name="fname" required>
+          <input type="text" id="fname" name="First Name" required>
         </div>
         <div class="field">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lname" required>
+          <input type="text" id="lname" name="Last Name" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="field">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required>
+          <input type="tel" id="phone" name="Phone" required>
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="Email" required>
         </div>
       </div>
 
       <div class="field field-full">
         <label for="course">Course of Interest</label>
-        <select id="course" name="course">
+        <select id="course" name="Course of Interest">
           <optgroup label="— Force Application Block —">
             <option>Level II Certification</option>
             <option>Level III Certification</option>
@@ -3930,12 +3932,12 @@
 
       <div class="field field-full">
         <label for="role">Current Status / Role</label>
-        <input type="text" id="role" name="role" placeholder="e.g., Active Officer, Renewal, New Applicant">
+        <input type="text" id="role" name="Status / Role" placeholder="e.g., Active Officer, Renewal, New Applicant">
       </div>
 
       <div class="field field-full">
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Briefly describe your training needs, certification status, or any questions..."></textarea>
+        <textarea id="message" name="Message" placeholder="Briefly describe your training needs, certification status, or any questions..."></textarea>
       </div>
 
       <div class="submit-row">
@@ -4005,28 +4007,49 @@
     });
   });
 
-  // Form submit — opens user's email client pre-filled to OPLO
+  // Form submit — sends via Formspree directly to oplotraininggroup@gmail.com
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const v = id => (document.getElementById(id)?.value || '').trim();
-    const subject = encodeURIComponent('OPLO Training Inquiry — ' + v('course'));
-    const body = encodeURIComponent(
-      'Name: ' + v('fname') + ' ' + v('lname') + '\n' +
-      'Phone: ' + v('phone') + '\n' +
-      'Email: ' + v('email') + '\n' +
-      'Course of Interest: ' + v('course') + '\n' +
-      'Status / Role: ' + v('role') + '\n\n' +
-      'Message:\n' + v('message') + '\n\n' +
-      '— Sent via oplo.gold contact form'
-    );
-    window.location.href = 'mailto:oplotraininggroup@gmail.com?subject=' + subject + '&body=' + body;
-    status.classList.add('show');
     const btn = form.querySelector('.submit-btn');
-    btn.textContent = 'Opening Email ✓';
-    btn.style.background = 'transparent';
-    btn.style.color = 'var(--blood)';
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    // Set reply-to so you can reply straight to the sender
+    const rt = document.getElementById('_replyto');
+    const em = document.getElementById('email');
+    if (rt && em) rt.value = em.value;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.classList.add('show');
+        status.style.background = 'rgba(193,18,31,0.08)';
+        status.style.borderLeftColor = 'var(--blood)';
+        status.textContent = '✓ Transmission received. The OPLO team will respond to you directly.';
+        btn.textContent = 'Sent ✓';
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--blood)';
+        btn.style.opacity = '1';
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.errors?.[0]?.message || 'Submission failed');
+      }
+    } catch (err) {
+      status.classList.add('show');
+      status.style.background = 'rgba(120,120,120,0.12)';
+      status.style.borderLeftColor = 'var(--gold)';
+      status.textContent = '✗ Send failed. Please call 832-330-1321 or email oplotraininggroup@gmail.com directly.';
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
   });
 
   // Reveal-on-scroll
