@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OPLO.GOLD — The Premier Texas Security Academy · Houston, TX</title>
-<meta name="description" content="OPLO — The Premier Texas Security Academy in Houston. State-licensed Private Security Training: Levels II–IV, TXPSB OC, ASP, Defensive Tactics, ALERRT, Stop The Bleed, LTC. Real-world operational experience. The gold standard." />
+<title>OPLO.GOLD — The Premier Texas Security Academy · Hutto, TX</title>
+<meta name="description" content="OPLO — The Premier Texas Security Academy in Hutto, TX. TX DPS Licensed F25169401. State-licensed Private Security Training: Levels II–IV, TXPSB OC, ASP, Defensive Tactics, ALERRT, Stop The Bleed, LTC, AVERT. Real-world operational experience. The gold standard." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -729,6 +729,297 @@
     line-height: 1.55;
     max-width: 800px;
   }
+
+  /* === UPCOMING SCHEDULE === */
+  .schedule{
+    padding: 120px 32px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .schedule-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 18px;
+    margin-top: 50px;
+  }
+  .sched-card{
+    background:
+      linear-gradient(135deg, rgba(212,175,55,0.04), transparent 60%),
+      var(--bg-3);
+    border: 1px solid var(--line);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .sched-card:hover{
+    border-color: var(--gold-line);
+    transform: translateY(-3px);
+  }
+  .sched-card:hover .sc-date-day{ color: var(--gold); }
+  .sched-card.full{
+    opacity: 0.6;
+  }
+  .sched-card.full .sc-cta{
+    background: var(--bg-3);
+    color: var(--ink-faint);
+    border-color: var(--line);
+    pointer-events: none;
+  }
+
+  /* Top status strip */
+  .sc-strip{
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: rgba(10,10,11,0.4);
+  }
+  .sc-strip .sc-tier{ color: var(--gold); }
+  .sc-strip .sc-status{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink-dim);
+  }
+  .sc-strip .sc-status::before{
+    content:"";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blood);
+    box-shadow: 0 0 6px var(--blood);
+  }
+  .sched-card.few .sc-strip .sc-status{ color: var(--gold); }
+  .sched-card.few .sc-strip .sc-status::before{ background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+  .sched-card.full .sc-strip .sc-status{ color: var(--ink-faint); }
+  .sched-card.full .sc-strip .sc-status::before{ background: var(--ink-faint); box-shadow: none; }
+
+  /* Date + body */
+  .sc-body{
+    padding: 24px 24px 22px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .sc-date{
+    text-align: center;
+    border: 1px solid var(--line);
+    padding: 12px 14px 10px;
+    background: var(--bg-2);
+    min-width: 80px;
+  }
+  .sc-date-month{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--blood);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .sc-date-day{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    line-height: 0.9;
+    color: var(--ink);
+    transition: color 0.3s;
+  }
+  .sc-date-year{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+  .sc-info{
+    min-width: 0;
+  }
+  .sc-info h4{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .sc-info h4 .accent{ color: var(--blood); }
+  .sc-info .sc-sub{
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sc-meta{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+  .sc-meta div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sc-meta svg{
+    width: 12px; height: 12px;
+    color: var(--blood);
+    flex-shrink: 0;
+  }
+
+  .sc-cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    margin-top: auto;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .sc-cta:hover{
+    background: var(--blood);
+    color: #fff;
+  }
+  .sc-cta .arrow{ transition: transform 0.2s; }
+  .sc-cta:hover .arrow{ transform: translateX(4px); }
+
+  /* Schedule footer note */
+  .sched-note{
+    margin-top: 32px;
+    text-align: center;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    background: rgba(212,175,55,0.04);
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+  }
+  .sched-note strong{
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-right: 6px;
+  }
+  .sched-note a{
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--blood);
+    padding-bottom: 1px;
+  }
+  .sched-note a:hover{ color: var(--blood); }
+
+  /* === GOOGLE CALENDAR EMBED === */
+  .gcal-wrap{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    padding: 0;
+    overflow: hidden;
+  }
+  .gcal-wrap::before{
+    content:"";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blood), var(--gold), var(--blood));
+    z-index: 3;
+  }
+  .gcal-strip{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(10,10,11,0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .gcal-strip .gcal-title{
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .gcal-strip .gcal-title::before{
+    content:"";
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold);
+    animation: pulse 2s infinite;
+  }
+  .gcal-strip .gcal-meta span{ color: var(--blood); }
+  .gcal-frame{
+    position: relative;
+    width: 100%;
+    background: #1a1a1d;
+    overflow: hidden;
+  }
+  .gcal-frame iframe{
+    display: block;
+    width: 100%;
+    height: 640px;
+    border: 0;
+    background: #1a1a1d;
+    /* Slightly recolor the embed to fit the dark theme */
+    filter: invert(0.92) hue-rotate(180deg);
+  }
+  /* On hover, the iframe controls remain functional */
+  .gcal-frame iframe:hover{
+    filter: invert(0.92) hue-rotate(180deg);
+  }
+
+  /* Divider between live calendar and fallback cards */
+  .sched-fallback-head{
+    margin: 60px 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .sched-fallback-head .line{
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .sched-fallback-head .label{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sched-fallback-head .label span{ color: var(--blood); }
 
   /* === GALLERY === */
   .gallery{
@@ -2460,6 +2751,47 @@
     text-transform: uppercase;
   }
   .footer-meta span span{ color: var(--blood); }
+  .footer-address{
+    padding: 36px 0 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-address .fa-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .footer-address .fa-block{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-address .fa-label{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--blood);
+    text-transform: uppercase;
+  }
+  .footer-address .fa-value{
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .footer-address .fa-value.gold{
+    color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+  }
+  .footer-address .fa-value a{
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-address .fa-value a:hover{ color: var(--blood); }
+
   .copyright{
     margin-top: 24px;
     font-family: 'JetBrains Mono', monospace;
@@ -2491,6 +2823,10 @@
     }
     .capabilities-inner{ padding: 0 20px; }
     .cap-grid{ grid-template-columns: repeat(2, 1fr); }
+    .schedule{ padding: 80px 20px; }
+    .schedule-grid{ grid-template-columns: 1fr 1fr; gap: 14px; }
+    .gcal-frame iframe{ height: 560px; }
+    .gcal-strip{ font-size: 9px; letter-spacing: 0.18em; padding: 12px 16px; }
     .fc-grid{ grid-template-columns: 1fr; }
     .fc-main{ padding: 40px 28px; }
     .fc-side{ border-left: none; border-top: 1px solid var(--line); padding: 32px 28px; }
@@ -2622,6 +2958,7 @@
     .gold-banner{ padding: 40px 20px; }
     .footer-grid{ flex-direction: column; text-align: center; }
     .footer-meta{ flex-direction: column; gap: 10px; align-items: center; }
+    .footer-address .fa-row{ grid-template-columns: 1fr 1fr; gap: 22px; }
   }
 
   @media (max-width: 640px){
@@ -2741,6 +3078,24 @@
     /* GOLD BANNER */
     .gold-banner{ padding: 30px 16px; }
     .gold-banner h3{ font-size: 22px; }
+
+    /* SCHEDULE */
+    .schedule{ padding: 64px 16px; }
+    .gcal-wrap{ margin-top: 32px; margin-bottom: 36px; }
+    .gcal-frame iframe{ height: 460px; }
+    .gcal-strip{ padding: 10px 14px; font-size: 8.5px; letter-spacing: 0.14em; }
+    .sched-fallback-head{ margin: 40px 0 24px; gap: 12px; }
+    .sched-fallback-head .label{ font-size: 9px; letter-spacing: 0.22em; }
+    .schedule-grid{ grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+    .sched-card .sc-body{ padding: 20px 18px 18px; gap: 18px; }
+    .sc-date{ min-width: 68px; padding: 10px 10px 8px; }
+    .sc-date-day{ font-size: 36px; }
+    .sc-info h4{ font-size: 22px; }
+    .sc-info .sc-sub{ font-size: 10px; }
+    .sc-meta{ font-size: 9.5px; }
+    .sc-strip{ font-size: 8.5px; padding: 9px 16px; }
+    .sc-cta{ padding: 13px 18px; font-size: 11px; }
+    .sched-note{ font-size: 12px; padding: 18px 16px; }
 
     /* FEATURED COURSE (AVERT) */
     .featured-course{ margin-top: 44px; }
@@ -2863,6 +3218,11 @@
     /* FOOTER */
     footer{ padding: 40px 16px 24px; }
     .footer-grid{ flex-direction: column; gap: 18px; padding-bottom: 22px; }
+    .footer-address{ padding: 28px 0 22px; }
+    .footer-address .fa-row{ grid-template-columns: 1fr; gap: 18px; text-align: center; }
+    .footer-address .fa-block{ align-items: center; }
+    .footer-address .fa-value{ font-size: 13px; }
+    .footer-address .fa-value.gold{ font-size: 20px; }
     .footer-brand img{ width: 36px; height: 36px; }
     .footer-brand-text{ font-size: 16px; letter-spacing: 0.14em; }
     .footer-brand-text small{ font-size: 8px; letter-spacing: 0.2em; }
@@ -2901,14 +3261,14 @@
           <path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/>
           <circle cx="12" cy="11" r="3"/>
         </svg>
-        Houston · Texas
+        Hutto, TX
       </span>
       <span class="announce-divider"></span>
       <span class="announce-item gold">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2 L15 9 L22 9.5 L17 14.5 L18.5 22 L12 18 L5.5 22 L7 14.5 L2 9.5 L9 9 Z"/>
         </svg>
-        TX DPS Licensed
+        TX DPS · F25169401
       </span>
       <span class="announce-divider"></span>
       <span class="announce-item live">USMC Veteran Owned</span>
@@ -2937,7 +3297,7 @@
     <a href="#about">About</a>
     <a href="#courses">Courses</a>
     <a href="#avert">AVERT</a>
-    <a href="#capabilities">Capabilities</a>
+    <a href="#schedule">Schedule</a>
     <a href="#contact" class="cta-btn">Get Certified</a>
   </nav>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -3766,11 +4126,289 @@
   </div>
 </section>
 
+<!-- UPCOMING SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="section-head">
+    <div>
+      <div class="section-num">07 / Schedule</div>
+      <h2 class="section-title">Upcoming <span class="accent">Courses.</span></h2>
+    </div>
+    <p class="section-sub">
+      Live training sessions and certifications on the OPLO calendar. Reserve your seat early — class sizes are intentionally limited to ensure individual instruction time on the line.
+    </p>
+  </div>
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    HOW TO EDIT THE SCHEDULE
+    ════════════════════════════════════════════════════════════════════
+    Each <article class="sched-card"> below is one upcoming course.
+    To add, remove, or update courses, copy a block and edit:
+      - data-course        = course name for pre-filled form
+      - data-date          = date string for pre-filled form
+      - sc-date-month      = JAN, FEB, MAR, etc.
+      - sc-date-day        = day number (12, 25, etc.)
+      - sc-date-year       = year (2026)
+      - sc-tier            = which block it belongs to
+      - sc-status          = "8 SEATS OPEN" / "2 SEATS LEFT" / "FULL"
+      - Add class "few"    to .sched-card to show gold "few seats left" indicator
+      - Add class "full"   to .sched-card to mark as fully booked
+      - sc-info h4         = course title
+      - sc-sub             = subtitle (Initial/Renewal/etc.)
+      - sc-meta            = time, location, duration
+
+    The "Reserve Seat" button automatically scrolls to the contact form
+    and pre-fills the message with the course + date.
+    ════════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- ════════════════════════════════════════════════════════════════
+       GOOGLE CALENDAR EMBED — Replace the src URL below with YOURS.
+       See SCHEDULE_EDITING.md or the README for full setup instructions.
+
+       To get your URL:
+       1. Open Google Calendar in browser
+       2. Find your OPLO calendar in the left sidebar
+       3. Hover it → click ⋮ (three dots) → Settings and sharing
+       4. Scroll to "Integrate calendar" section
+       5. Copy the "Public URL to this calendar" — but better: use the
+          "Embed code" — find the src="..." URL inside the iframe code
+       6. Replace YOUR_CALENDAR_ID_HERE below with that URL
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="gcal-wrap">
+    <div class="gcal-strip">
+      <span class="gcal-title">// Live Calendar</span>
+      <span class="gcal-meta">All Times <span>//</span> Central Time · Hutto, TX</span>
+    </div>
+    <div class="gcal-frame">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE&ctz=America%2FChicago&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%231a1a1d"
+        title="OPLO Training Calendar"
+        loading="lazy"
+        scrolling="no"
+        frameborder="0">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="sched-fallback-head">
+    <span class="line"></span>
+    <span class="label">Featured <span>//</span> Upcoming Sessions</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="schedule-grid">
+
+    <!-- CARD 1 -->
+    <article class="sched-card" data-course="Level III Certification" data-date="JAN 18, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// FORCE BLOCK</span>
+        <span class="sc-status">8 Seats Open</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">JAN</div>
+          <div class="sc-date-day">18</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>Level III <span class="accent">Certification</span></h4>
+          <div class="sc-sub">Initial · Armed Tier</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              08:00 – 17:00 · Full Day
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Training Center
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Reserve Seat</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="sched-card few" data-course="AVERT — Active Violence Emergency Response" data-date="JAN 25, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// FEATURED · AVERT</span>
+        <span class="sc-status">2 Seats Left</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">JAN</div>
+          <div class="sc-date-day">25</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>AVERT<span class="accent">.</span></h4>
+          <div class="sc-sub">Active Violence Response</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              08:00 – 16:00 · Full Day
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Indoor Bay
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Reserve Seat</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="sched-card" data-course="ASP Defensive Tactics" data-date="FEB 01, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// FORCE BLOCK</span>
+        <span class="sc-status">10 Seats Open</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">FEB</div>
+          <div class="sc-date-day">01</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>ASP / Defensive <span class="accent">Tactics</span></h4>
+          <div class="sc-sub">Initial · Hands-On Control</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              09:00 – 17:00 · Full Day
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Training Bay
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Reserve Seat</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="sched-card full" data-course="LTC — License To Carry" data-date="JAN 11, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// LIFE BLOCK</span>
+        <span class="sc-status">Full</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">JAN</div>
+          <div class="sc-date-day">11</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>LTC — License <span class="accent">To Carry</span></h4>
+          <div class="sc-sub">Initial · Texas Handgun</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              08:00 – 14:00 · Half Day
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Training Center
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Join Waitlist</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="sched-card" data-course="ALERRT — CRASE" data-date="FEB 08, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// LIFE BLOCK</span>
+        <span class="sc-status">12 Seats Open</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">FEB</div>
+          <div class="sc-date-day">08</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>ALERRT — <span class="accent">CRASE</span></h4>
+          <div class="sc-sub">Active Threat Response</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              09:00 – 17:00 · Full Day
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Classroom
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Reserve Seat</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="sched-card" data-course="Level II Certification" data-date="FEB 15, 2026">
+      <div class="sc-strip">
+        <span class="sc-tier">// FORCE BLOCK</span>
+        <span class="sc-status">10 Seats Open</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-date">
+          <div class="sc-date-month">FEB</div>
+          <div class="sc-date-day">15</div>
+          <div class="sc-date-year">2026</div>
+        </div>
+        <div class="sc-info">
+          <h4>Level II <span class="accent">Certification</span></h4>
+          <div class="sc-sub">Initial · Foundation Tier</div>
+          <div class="sc-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              09:00 – 15:00 · 6 Hours
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 6, 4 11 C 4 17, 12 22, 12 22 S 20 17, 20 11 C 20 6, 17 2, 12 2 Z"/><circle cx="12" cy="11" r="3"/></svg>
+              Hutto · Classroom
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#contactForm" class="sc-cta" data-schedule>
+        <span>Reserve Seat</span>
+        <span class="arrow">→</span>
+      </a>
+    </article>
+
+  </div>
+
+  <div class="sched-note">
+    <strong>// Don't See Your Date?</strong> Private &amp; group bookings available on request. <a href="#contact">Contact us</a> to schedule a custom session for your team.
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="section-head">
     <div>
-      <div class="section-num">07 / Gallery</div>
+      <div class="section-num">08 / Gallery</div>
       <h2 class="section-title">Range. <span class="accent">Reps.</span> Real Work.</h2>
     </div>
     <p class="section-sub">
@@ -3832,13 +4470,18 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-copy">
-      <div class="section-num">08 / Contact</div>
+      <div class="section-num">09 / Contact</div>
       <h2>Call Before You<br><span class="accent">Pay Anyone Else.</span></h2>
       <p>
         Questions about certification requirements, renewals, licensing timelines, or whether a course is valid for Texas private security? Reach out directly. The owner and supervisor respond personally.
       </p>
 
       <div class="contact-direct">
+        <div class="label">// Training Center</div>
+        <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line);">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; color: var(--ink); line-height: 1.1; margin-bottom: 6px;">108 McNutt Business Park Blvd</div>
+          <div style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 0.08em; color: var(--ink-dim); text-transform: uppercase;">Hutto, Texas · <span style="color: var(--gold);">TX DPS F25169401</span></div>
+        </div>
         <div class="label">// Direct Lines</div>
         <a href="tel:+18323301321" class="contact-row">
           <span class="icon">☏</span>
@@ -3971,6 +4614,26 @@
       <span>TEXAS <span>//</span> OPERATING</span>
     </div>
   </div>
+  <div class="footer-address">
+    <div class="fa-row">
+      <div class="fa-block">
+        <div class="fa-label">// Training Center</div>
+        <div class="fa-value">108 McNutt Business Park Blvd<br>Hutto, TX</div>
+      </div>
+      <div class="fa-block">
+        <div class="fa-label">// TX DPS License</div>
+        <div class="fa-value gold">F25169401</div>
+      </div>
+      <div class="fa-block">
+        <div class="fa-label">// Direct Line</div>
+        <div class="fa-value"><a href="tel:+18323301321">832-330-1321</a></div>
+      </div>
+      <div class="fa-block">
+        <div class="fa-label">// Email</div>
+        <div class="fa-value"><a href="mailto:oplotraininggroup@gmail.com">oplotraininggroup@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
   <div class="copyright">
     © OPLO.GOLD · OPLO Training Group / Texas Security Academy · The Gold Standard · All Rights Reserved
   </div>
@@ -4052,6 +4715,44 @@
     }
   });
 
+  // Schedule "Reserve Seat" → scroll to form + pre-fill course and date
+  document.querySelectorAll('[data-schedule]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const card = btn.closest('.sched-card');
+      const courseName = card?.dataset.course || '';
+      const dateStr = card?.dataset.date || '';
+
+      // Pre-fill the course select if possible (match by text)
+      const courseSelect = document.getElementById('course');
+      if (courseSelect && courseName) {
+        const options = Array.from(courseSelect.options);
+        // Try exact match first, then a contains match
+        let match = options.find(o => o.text.trim().toLowerCase() === courseName.toLowerCase());
+        if (!match) {
+          match = options.find(o => o.text.toLowerCase().includes(courseName.toLowerCase().split(' ')[0]));
+        }
+        if (match) courseSelect.value = match.value;
+      }
+
+      // Pre-fill the message field
+      const msg = document.getElementById('message');
+      if (msg) {
+        msg.value = 'I would like to reserve a seat for ' + courseName + ' on ' + dateStr + '.\n\nPlease confirm availability and next steps.';
+      }
+
+      // Scroll to form + focus first name
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.style.transition = 'box-shadow 0.4s ease';
+        form.style.boxShadow = '0 0 0 1px var(--blood), 0 0 40px var(--blood-glow)';
+        setTimeout(() => { form.style.boxShadow = ''; }, 1400);
+        setTimeout(() => { document.getElementById('fname')?.focus(); }, 600);
+      }
+    });
+  });
+
   // Reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -4062,7 +4763,7 @@
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.course, .course-detail, .block-header, .comp, .credentials, .standard, .instructor-card, .istat, .integrated-note, .price-table, .range-package, .gtile, .cap-card, .cap-strip, .featured-course').forEach(el => {
+  document.querySelectorAll('.course, .course-detail, .block-header, .comp, .credentials, .standard, .instructor-card, .istat, .integrated-note, .price-table, .range-package, .gtile, .cap-card, .cap-strip, .featured-course, .sched-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
